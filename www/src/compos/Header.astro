@@ -1,0 +1,88 @@
+---
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+
+import Link from "@compos/core/Link.astro";
+import Dropdown from "@compos/core/Dropdown.astro";
+import Logo from "@compos/Logo.astro";
+
+export interface Props {
+  title?: string;
+  path?: string;
+  navlinks: {
+    title: string;
+    path?: string;
+    children?: {
+      title: string;
+      path?: string;
+    }[];
+  }[];
+}
+---
+
+<header
+  class="w-full px-4 py-2 md:py-1 flex flex-col lg:flex-row justify-between items-center backdrop-blur-3xl text-white sticky top-0 z-20"
+>
+  <Astronav>
+    <div class="flex w-full lg:w-auto items-center justify-between">
+      <Link
+        noeffects={true}
+        href={Astro.props.path}
+        class="p-2 inline-flex justify-between items-center font-extrabold"
+      >
+        <Logo hidetext={true} />
+        {
+          Astro.props.title && (
+            <Logo hideicon={true} class="hidden sm:block">
+              {Astro.props.title}
+            </Logo>
+          )
+        }
+      </Link>
+      <div class="flex items-center justify-center lg:hidden">
+        {
+          Astro.slots.has("cta") && (
+            <div class="flex items-center justify-end gap-4">
+              <slot name="cta" />
+            </div>
+          )
+        }
+        <MenuIcon class="w-4 h-4 ml-2" />
+      </div>
+    </div>
+    <MenuItems class="hidden w-full lg:w-auto lg:flex my-2">
+      <ul class="flex flex-col lg:flex-row lg:gap-8">
+        {
+          Astro.props.navlinks.map((item, index) => (
+            <>
+              {item.children && (
+                <Dropdown
+                  title={item.title}
+                  children={item.children}
+                  lastItem={index === Astro.props.navlinks.length - 1}
+                />
+              )}
+
+              {!item.children && (
+                <li>
+                  <a
+                    href={item.path}
+                    class="flex lg:px-3 py-2 hover:text-blue-400"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              )}
+            </>
+          ))
+        }
+      </ul>
+    </MenuItems>
+  </Astronav>
+  {
+    Astro.slots.has("cta") && (
+      <div class="hidden w-56 lg:flex items-center justify-end gap-4">
+        <slot name="cta" />
+      </div>
+    )
+  }
+</header>

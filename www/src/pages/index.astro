@@ -1,0 +1,149 @@
+---
+import Page from "@layouts/Page.astro";
+
+import { SITE, LINKS, COLORS } from "@config";
+
+import { Image } from "astro:assets";
+
+import Link from "@compos/core/Link.astro";
+
+import xquaText from "@assets/xqua-text.svg";
+---
+
+<Page title={`${SITE.name}: Building The Next-Gen of Internet Technologies`}>
+  <!-- hero section -->
+  <main id="hero" class="relative px-6 lg:px-8 text-white">
+    <!-- bg-gradients -->
+    <div
+      class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+    >
+      <svg
+        class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+        viewBox="0 0 1155 678"
+      >
+        <path
+          fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
+          fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+        ></path>
+        <defs>
+          <linearGradient
+            id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
+            x1="1155.49"
+            x2="-78.208"
+            y1=".177"
+            y2="474.645"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color={COLORS.c}></stop>
+            <stop offset="1" stop-color={COLORS.b}></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div
+      class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+    >
+      <svg
+        class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
+        viewBox="0 0 1155 678"
+      >
+        <path
+          fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)"
+          fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+        ></path>
+        <defs>
+          <linearGradient
+            id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc"
+            x1="1155.49"
+            x2="-78.208"
+            y1=".177"
+            y2="474.645"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color={COLORS.b}></stop>
+            <stop offset="1" stop-color={COLORS.a}></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- content -->
+    <div class="mx-auto max-w-2xl py-24">
+      <div class="mb-8 flex justify-center">
+        <Link
+          noeffects={true}
+          href={LINKS.home}
+          class="inline-flex justify-between items-center py-2 px-2 pr-4 text-sm bg-slate-950/75 rounded-full text-white ring-1 ring-transparent hover:ring-slate-300"
+          role="alert"
+        >
+          <span class="text-xs bg-purple-600 rounded-full px-4 py-1.5 mr-3"
+            >Brewing Now</span
+          >
+          <span class="text-sm font-medium">Checkout our latest project</span>
+          <svg
+            class="ml-2 w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"></path></svg
+          >
+        </Link>
+      </div>
+      <div class="text-center">
+        <span class="flex flex-col justify-center items-center tracking-tight">
+          <!-- <h1 class="text-4xl font-bold sm:text-6xl">XQUA</h1>  -->
+
+          <Image src={xquaText} alt="xqua-test" class="w-1/2 md:w-8/12 lg:w-3/4"/>
+
+          <span class="mt-4 text-2xl font-light sm:text-5xl">
+            GitHub for Systems Design
+          </span>
+        </span>
+        <p class="mt-6 text-lg leading-8 text-gray-300">
+          changing the way how you design, test and collaborate to build
+          reliable systems and applications.
+        </p>
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <Link
+            noeffects={true}
+            href={LINKS.home}
+            class="btn primary py-3 px-5 inline-flex justify-center items-center text-center"
+          >
+            Learn More
+            <svg
+              class="ml-2 -mr-1 w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path></svg
+            >
+          </Link>
+          <Link
+            noeffects={true}
+            href="#"
+            class="btn glass py-3 px-5 inline-flex justify-center items-center text-center"
+          >
+            <svg
+              class="mr-2 -ml-1 w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"
+              ></path></svg
+            >
+            Watch video
+          </Link>
+        </div>
+      </div>
+    </div>
+  </main>
+</Page>

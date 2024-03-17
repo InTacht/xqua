@@ -1,0 +1,90 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: "Mona Sans";
+  font-display: swap;
+  src: url("/fonts/Mona-Sans.woff2") format("woff2 supports variations"),
+    url("/fonts/Mona-Sans.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+@layer components {
+  .btn {
+    @apply p-2 sm:px-3;
+    @apply inline-flex items-center justify-center;
+    @apply rounded-lg sm:rounded-xl shadow-lg border border-transparent;
+    @apply text-sm sm:text-base text-center leading-snug font-medium;
+    @apply transition ease-in duration-200;
+    @apply focus:ring-2 focus:ring-offset-2;
+    @apply transition-colors duration-200;
+  }
+
+  .btn.primary {
+    @apply bg-purple-600 hover:bg-purple-700;
+    @apply text-white;
+    @apply focus:ring-purple-600 focus:ring-offset-purple-200;
+  }
+
+  .btn.glass {
+    @apply bg-slate-950/75 hover:bg-slate-950;
+    @apply ring-2 ring-purple-600 hover:ring-purple-700 focus:ring-offset-purple-200;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text;
+    @apply bg-gradient-to-br from-purple-600 via-white to-fuchsia-500;
+  }
+
+  .gradient-text-primary {
+    @apply text-transparent bg-clip-text;
+    @apply bg-gradient-to-tr from-fuchsia-500 to-blue-500;
+  }
+
+  .gradient-text-primary-invert {
+    @apply text-transparent bg-clip-text;
+    @apply bg-gradient-to-tr from-blue-500 to-violet-500;
+  }
+
+  .flex-c {
+    @apply flex flex-col;
+  }
+
+  .flex-ci {
+    @apply flex flex-col items-center;
+  }
+
+  .flex-cj {
+    @apply flex flex-col justify-center;
+  }
+
+  .flex-cij {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .flex-r {
+    @apply flex flex-row;
+  }
+
+  .flex-ri {
+    @apply flex flex-row items-center;
+  }
+
+  .flex-rj {
+    @apply flex flex-row justify-center;
+  }
+
+  .flex-rij {
+    @apply flex flex-row items-center justify-center;
+  }
+}
+
+[astro-icon] > * {
+  stroke-width: 2;
+}
+
+[astro-icon].icon-bold > * {
+  stroke-width: 4;
+}

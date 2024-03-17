@@ -1,0 +1,29 @@
+---
+export interface Props {
+  id?: string;
+  align?: string;
+  classx?: string;
+}
+---
+
+<section id={Astro.props.id} class:list={["max-w-screen-xl mx-auto px-5", Astro.props.classx]}>
+  {
+    Astro.slots.has("title") && (
+      <div
+        class:list={["mt-16", Astro.props.align === "center" && "text-center"]}
+      >
+        <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+          <slot name="title">Title</slot>
+        </h1>
+
+        {Astro.slots.has("desc") && (
+          <p class="text-lg mt-4 text-slate-600">
+            <slot name="desc">Some description goes here</slot>
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  <slot />
+</section>

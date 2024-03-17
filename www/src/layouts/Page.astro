@@ -1,0 +1,165 @@
+---
+import Base from "@layouts/Base.astro";
+
+import { LINKS } from "@config";
+
+import { Icon } from "astro-icon/components";
+
+import Link from "@compos/core/Link.astro";
+
+import Header from "@compos/Header.astro";
+import Footer from "@compos/Footer.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string | astroHTML.JSX.ImgHTMLAttributes;
+}
+
+const metaData = {
+  title: Astro.props.title,
+  description: Astro.props.description,
+  image: Astro.props.image,
+};
+---
+
+<Base {...metaData}>
+  <Header
+    path={LINKS.home}
+    navlinks={[
+      {
+        title: "Roadmap",
+        path: LINKS.roadmap,
+      },
+      {
+        title: "Use Cases",
+        path: LINKS.usecases,
+      },
+      {
+        title: "Docs",
+        path: LINKS.resources.docs,
+      },
+      {
+        title: "Blog",
+        path: LINKS.resources.blog,
+      },
+    ]}
+  >
+    <div slot="cta" class="p-2 flex items-center justify-center gap-x-6">
+      <Link
+      noeffects={true}
+      external={true}
+      href={LINKS.github}
+      class=`lg:w-52 p-2 sm:px-3  inline-flex justify-center items-center text-center  transition duration-200 ease-in-out  bg-slate-950/75 hover:bg-white hover:text-black rounded-full
+        ring-1 ring-white hover:ring-white focus:ring-offset-white`
+    >
+      <Icon name="tabler:brand-github" class="w-5 h-5 " />
+      <span class="ml-2 hidden sm:block text-sm">
+        Star Us on GitHub
+      </span>
+    </Link>
+    <Link
+    noeffects={true}
+    external={true}
+    href={LINKS.github}
+    class=`w-28 p-2 px-3  inline-flex justify-center items-center text-center  transition duration-200 ease-in-out
+  
+    bg-slate-950/75 rounded-full
+      ring-1  ring-purple-500 hover:ring-purple-400 focus:ring-offset-purple-200`
+  >
+  <Icon
+  name="intacht"
+  class="w-6 h-6"
+/>
+    <span class="ml-2 text-sm">
+      Try Now
+    </span>
+  </Link>
+    </div>
+  </Header>
+  <slot />
+  <Footer
+    home={LINKS.intacht.path}
+    tos={LINKS.intacht.legal.tos}
+    privacyPolicy={LINKS.intacht.legal.privacyPolicy}
+    socialLinks={[
+      {
+        path: LINKS.intacht.social.twitter,
+        icon: "tabler:brand-x",
+        hover: "hover:bg-black",
+      },
+      {
+        path: LINKS.intacht.social.github,
+        icon: "tabler:brand-github",
+        hover: "hover:bg-black",
+      },
+      {
+        path: LINKS.intacht.social.youtube,
+        icon: "tabler:brand-youtube",
+        hover: "hover:bg-red-600",
+      },
+      {
+        path: "/rss.xml",
+        icon: "tabler:rss",
+        hover: "hover:bg-orange-500",
+      },
+    ]}
+    navlinks={[
+      {
+        title: "Project",
+        children: [
+          {
+            title: "GitHub",
+            path: LINKS.github,
+          },
+          {
+            title: "Roadmap",
+            path: LINKS.roadmap,
+          },
+          {
+            title: "Changelog",
+            path: LINKS.changelog,
+          },
+          {
+            title: "Use Cases",
+            path: LINKS.usecases,
+          },
+        ],
+      },
+      {
+        title: "Resources",
+        children: [
+          {
+            title: "Blog",
+            path: LINKS.resources.blog,
+          },
+          {
+            title: "Docs",
+            path: LINKS.resources.docs,
+          },
+          {
+            title: "Learn",
+            path: LINKS.resources.learn,
+          },
+        ],
+      },
+      {
+        title: "InTacht Labs",
+        children: [
+          {
+            title: "About Us",
+            path: LINKS.intacht.about,
+          },
+          {
+            title: "Careers",
+            path: LINKS.intacht.careers,
+          },
+          {
+            title: "Legal",
+            path: LINKS.intacht.legal.path,
+          },
+        ],
+      },
+    ]}
+  />
+</Base>

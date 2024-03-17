@@ -1,0 +1,37 @@
+---
+const {
+  noeffects = false,
+  external = false,
+  href = "#",
+  class: className = "",
+  ...attrs
+} = Astro.props;
+---
+
+{
+  external ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener"
+      class:list={[
+        noeffects ? "" : "transition-colors duration-200 hover:text-blue-400",
+        className,
+      ]}
+      {...attrs}
+    >
+      <slot />
+    </a>
+  ) : (
+    <a
+      href={href}
+      class:list={[
+        noeffects ? "" : "transition-colors duration-200 hover:text-blue-400",
+        className,
+      ]}
+      {...attrs}
+    >
+      <slot />
+    </a>
+  )
+}

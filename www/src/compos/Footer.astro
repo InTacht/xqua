@@ -1,0 +1,93 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Link from "@compos/core/Link.astro";
+import MadeByInTacht from "@compos/MadeByInTacht.astro";
+
+
+export interface Props {
+  home: string;
+  tos: string;
+  privacyPolicy: string;
+  socialLinks:{
+    path?: string;
+    icon: string;
+    hover: string;
+  }[]; 
+  navlinks: {
+    title: string;
+    children: {
+      title: string;
+      path?: string;
+    }[];
+  }[];
+}
+---
+
+<footer
+  class="overflow-hidden w-full bg-gradient-to-t from-blue-600/15 to-slate-900"
+>
+  <div class="max-w-6xl mx-auto px-10 py-8 md:px-12 relative">
+    <div
+      class="absolute w-[129%] h-[22%] left-[20%] top-[21%] blur-[100px] md:w-[37%] md:h-[110%] md:left-[-22%] md:top-[55%] md:blur-[175px] bg-purple-600/30"
+    >
+    </div>
+    <div class="w-full grid grid-cols-12 md:grid-cols-10 gap-4 gap-y-8 sm:gap-8 py-4">
+      <div
+        class="col-span-12 md:col-span-4 flex flex-col justify-start items-center"
+      >
+        <div class="mb-2">
+          <Link
+            noeffects={true}
+            href={Astro.props.home}
+            class="inline-flex justify-between items-center font-extrabold"
+          >
+            <MadeByInTacht/>
+          </Link>
+        </div>
+        <div class="mt-4 text-sm text-gray-300">
+          <Link external={true} href={Astro.props.tos}>Terms</Link> · <Link
+            external={true}
+            href={Astro.props.privacyPolicy}
+          >
+            Privacy Policy
+          </Link>
+        </div>
+        <ul class="flex mt-6 z-10">
+          {
+            Astro.props.socialLinks.map((item) => (
+              <li class="mr-2 ml-2">
+                <Link
+                  noeffects={true}
+                  external={true}
+                  href={item.path}
+                  class={`flex justify-center items-center text-gray-600 hover:text-white bg-white ${item.hover} rounded-full shadow transition duration-200 ease-in-out p-4 sm:p-2`}
+                >
+                  <Icon name={item.icon} class="w-5 h-5 sm:w-6 sm:h-6" />
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      {
+        Astro.props.navlinks.map((link) => (
+          <div class="col-span-12 sm:col-span-4 md:col-span-2 text-center md:text-justify">
+            <div class="font-medium mb-2">{link.title}</div>
+            <ul class="text-sm text-gray-200">
+              {link.children.map((item) => (
+                <li class="mb-2">
+                  <Link href={item.path}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+    <p class="w-full mt-8 mb-2 text-center text-sm text-slate-400">
+      Copyright © {new Date().getFullYear()} InTacht Industries Pvt. Ltd. All rights
+      reserved.
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,58 @@
+---
+import "@assets/global.css";
+
+import { SITE } from "@config";
+
+import { getImage } from "astro:assets";
+
+import MetaTags from "@compos/core/MetaTags.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string | astroHTML.JSX.ImgHTMLAttributes;
+}
+
+const metaData = {
+  title: Astro.props.title || SITE.name,
+  description: Astro.props.description || SITE.description,
+  image: Astro.props.image,
+  canonical: new URL(Astro.url.pathname, Astro.site).toString(),
+};
+
+metaData.image =
+  metaData.image ||
+  (await getImage({
+    src: import("@assets/ogimg.png"),
+    width: 1200,
+    height: 628,
+    alt: `${metaData.title} - Banner`,
+  }));
+---
+
+<!DOCTYPE html>
+<html lang="en" class="motion-safe:scroll-smooth 2xl:text-[24px]">
+  <head>
+    <MetaTags {...metaData} />
+
+    <!-- Fonts -->
+    <link
+      rel="preload"
+      href="/fonts/Mona-Sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+
+  <body class="antialiased text-white tracking-tight bg-slate-900">
+    <slot />
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

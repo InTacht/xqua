@@ -1,0 +1,45 @@
+---
+import { getImage } from "astro:assets";
+
+const {
+  src,
+  alt,
+  sizes,
+  widths,
+  aspectRatio = 1,
+  formats = ["avif", "webp"],
+  loading = "lazy",
+  decoding = "async",
+  class: className = "",
+  ...attrs
+} = Astro.props;
+
+let picture = null;
+try {
+  picture = src && await getImage({
+src,
+widths,
+formats,
+aspectRatio,
+alt: ""
+})
+}
+catch (e) {
+}
+
+const { image = {}, sources = [] } = picture || {}
+---
+
+{ (src && image?.src) &&
+<picture {...attrs}>
+  {sources.map((attrs: astroHTML.JSX.IntrinsicAttributes & astroHTML.JSX.SourceHTMLAttributes) =>
+  <source {...attrs} {sizes} />)}
+  <img {...image} {loading} {decoding} {alt} class={className} />
+</picture>
+}
+
+<style>
+  img {
+    content-visibility: auto;
+  }
+</style>

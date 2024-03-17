@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  hideicon?: boolean;
+  hidetext?: boolean;
+  class?: string;
+}
+---
+
+{
+  !Astro.props.hideicon && (
+    <Icon
+      name="xqua"
+      class:list={[
+        "w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 mr-2",
+        Astro.props.class,
+      ]}
+    />
+  )
+}
+
+{
+  !Astro.props.hidetext && (
+    <span class:list={["ml-2 text-2xl", Astro.props.class]}><slot/></span>
+  )
+}
