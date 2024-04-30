@@ -1,0 +1,13 @@
+---
+export interface Props {
+  boxClass?: string;
+  class?: string;
+  style?: string;
+}
+---
+
+<div class:list={["p-[2px] rounded-xl shadow-lg hover:shadow-xl bg-gradient-to-r from-blue-200 hover:from-blue-300 via-cyan-200 hover:via-cyan-400 to-teal-300 hover:to-teal-500", Astro.props.boxClass]}>
+  <div class:list={["overflow-hidden w-full h-full flex relative p-8 rounded-xl bg-gray-900", Astro.props.class]} style={Astro.props.style}>
+    <slot/>
+  </div>
+</div>

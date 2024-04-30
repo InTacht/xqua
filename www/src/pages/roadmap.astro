@@ -1,0 +1,208 @@
+---
+import Page from "@layouts/Page.astro";
+
+import { SITE, COLORS } from "@config";
+
+import Section from "@compos/Section.astro";
+
+const content = [
+  {
+    milestone: "Finalize Project Architecture (Design)",
+    time: "Apr, 2024",
+    status: "completed",
+    context: "Technical Design & Project Website",
+    description:
+      "We have prepared overall technical architecture design & working mechanisms for XQUA and created theoretical application oriented case studies. The initial work on the Project Website is also complete and multiple resources will be updated on it in upcoming updates.",
+  },
+  {
+    milestone: "XQUA Engine & CLI (Dev)",
+    time: "Jun, 2024",
+    status: "in-progress",
+    context: "Develop the initial version for Engine & CLI",
+    description:
+      "Early development of the XQUA's Engine & CLI is in progress and we are expecting to ship it by mid of Jun, 2024.",
+  },
+  {
+    milestone: "XQUA Docs & Blog (Design)",
+    time: "Jun, 2024",
+    status: "in-progress",
+    context: "Add more technical resources around the Project",
+    description:
+      "The work on Docs for v0.5.0 (an early release) is in progress it would provide all the resources for using XQUA Framework. Also, we are working to launch the Blogs to regularly post helpful resources & articles for the Project.",
+  },
+  {
+    milestone: "The Space Protocol (Design)",
+    time: "TBA",
+    status: "todo",
+    context: "Prepare a standard communication protocol",
+    description:
+      "The Space Protocol aims to provide a standard interface for communicating with the XQUA Engine and develop Custom Spaces.",
+  },
+  {
+    milestone: "XQUA Space (Dev)",
+    time: "TBA",
+    status: "todo",
+    context: "An open implementation of Space Protocol",
+    description:
+      "A built-in implementation to be included with the XQUA Framework to speed up Platform Building.",
+  },
+  {
+    milestone: "Adapters Support (Dev)",
+    time: "TBA",
+    status: "todo",
+    context: "Space Extension Mechanism",
+    description:
+      "Develop support for Adapters to allow extending any Space with custom functionality and make them composable.",
+  },
+];
+
+const legend = {
+  completed: {
+    text: "emerald-700",
+    bg: "emerald-200",
+  },
+  "in-progress": {
+    text: "orange-700",
+    bg: "orange-200",
+  },
+  todo: {
+    text: "slate-700",
+    bg: "slate-200",
+  },
+};
+---
+
+<Page title={`${SITE.name}: Roadmap`}>
+  <Section
+    id="roadmap"
+    classx="relative px-6 lg:px-8 min-h-screen my-12 md:my-24"
+  >
+    <!-- bg-gradients -->
+    <div
+      class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+    >
+      <svg
+        class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+        viewBox="0 0 1155 678"
+      >
+        <path
+          fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
+          fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+        ></path>
+        <defs>
+          <linearGradient
+            id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
+            x1="1155.49"
+            x2="-78.208"
+            y1=".177"
+            y2="474.645"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color={COLORS.c}></stop>
+            <stop offset="1" stop-color={COLORS.b}></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div
+      class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+    >
+      <svg
+        class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
+        viewBox="0 0 1155 678"
+      >
+        <path
+          fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)"
+          fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+        ></path>
+        <defs>
+          <linearGradient
+            id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc"
+            x1="1155.49"
+            x2="-78.208"
+            y1=".177"
+            y2="474.645"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color={COLORS.b}></stop>
+            <stop offset="1" stop-color={COLORS.a}></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <span
+      slot="title"
+      class="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 hover:from-blue-300 via-cyan-200 hover:via-cyan-400 to-teal-300 hover:to-teal-500"
+      >The Project Roadmap</span
+    >
+    <span slot="desc">
+      Explore our roadmap section for an insider's view into the exciting
+      journey ahead. From upcoming features to innovative enhancements, stay
+      tuned as we pave the way for the future of technology.
+    </span>
+
+    <div class="flex-r justify-start my-8 py-4">
+      {
+        Object.entries(legend).map(([status, color]) => (
+          <span
+            class:list={[
+              "mx-4 inline-flex items-center justify-center text-xs font-semibold uppercase px-4 py-2 rounded-full",
+              `text-${color.text}`,
+              `bg-${color.bg}`,
+            ]}
+          >
+            {status}
+          </span>
+        ))
+      }
+    </div>
+
+    <div class="flex-cij w-full divide-y divide-slate-200 py-16">
+      <div class="w-full mx-auto">
+        <!-- Vertical Timeline #1 -->
+        <div class="-my-6">
+          {
+            content.map((item) => (
+              <div class="relative pl-8 sm:pl-32 py-6 group">
+                {/* <!-- Purple label --> */}
+                <div class="font-bold text-lg text-purple-500 mb-1 sm:mb-0">
+                  {item.milestone}
+                </div>
+
+                {/* <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) --> */}
+                <div
+                  class:list={[
+                    "flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5",
+                    `after:bg-${legend[item.status].text}`,
+                  ]}
+                >
+                  <time
+                    class:list={[
+                      "sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 rounded-full",
+                      `text-${legend[item.status].text}`,
+                      `bg-${legend[item.status].bg}`,
+                    ]}
+                  >
+                    {item.time}
+                  </time>
+
+                  <div class="text-xl font-bold text-purple-500 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 hover:from-blue-300 via-cyan-200 hover:via-cyan-400 to-teal-300 hover:to-teal-500">
+                    {item.context}
+                  </div>
+                </div>
+
+                {/* <!-- Content --> */}
+                <div>{item.description}</div>
+              </div>
+            ))
+          }
+        </div>
+        <!-- End: Vertical Timeline #1 -->
+      </div>
+    </div>
+  </Section>
+</Page>

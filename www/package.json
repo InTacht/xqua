@@ -1,7 +1,7 @@
 {
   "name": "www",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -14,6 +14,7 @@
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/flat-color-icons": "^1.1.10",
     "@iconify-json/tabler": "^1.1.107",
     "astro": "^4.4.15",
     "astro-feather-icons": "^1.0.2",

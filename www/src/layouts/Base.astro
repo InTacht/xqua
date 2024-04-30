@@ -3,6 +3,7 @@ import "@assets/global.css";
 
 import { SITE } from "@config";
 
+import type { GetImageResult } from "astro";
 import { getImage } from "astro:assets";
 
 import MetaTags from "@compos/core/MetaTags.astro";
@@ -10,7 +11,7 @@ import MetaTags from "@compos/core/MetaTags.astro";
 export interface Props {
   title?: string;
   description?: string;
-  image?: string | astroHTML.JSX.ImgHTMLAttributes;
+  image?: string | astroHTML.JSX.ImgHTMLAttributes | GetImageResult;
 }
 
 const metaData = {
@@ -21,8 +22,7 @@ const metaData = {
 };
 
 metaData.image =
-  metaData.image ||
-  (await getImage({
+  metaData.image || (await getImage({
     src: import("@assets/ogimg.png"),
     width: 1200,
     height: 628,
@@ -31,7 +31,7 @@ metaData.image =
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="motion-safe:scroll-smooth 2xl:text-[24px]">
+<html lang="en" class="motion-safe:scroll-smooth">
   <head>
     <MetaTags {...metaData} />
 

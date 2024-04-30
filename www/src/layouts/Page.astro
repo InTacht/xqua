@@ -32,49 +32,40 @@ const metaData = {
         path: LINKS.roadmap,
       },
       {
-        title: "Use Cases",
-        path: LINKS.usecases,
-      },
-      {
-        title: "Docs",
-        path: LINKS.resources.docs,
+        title: "Explore",
+        path: LINKS.explore,
       },
       {
         title: "Blog",
         path: LINKS.resources.blog,
       },
+      {
+        title: "Docs",
+        path: LINKS.resources.docs,
+      },
     ]}
   >
     <div slot="cta" class="p-2 flex items-center justify-center gap-x-6">
       <Link
-      noeffects={true}
-      external={true}
-      href={LINKS.github}
-      class=`lg:w-52 p-2 sm:px-3  inline-flex justify-center items-center text-center  transition duration-200 ease-in-out  bg-slate-950/75 hover:bg-white hover:text-black rounded-full
+        noeffects={true}
+        external={true}
+        href={LINKS.github}
+        class=`
+        lg:w-48 p-1 sm:px-3 inline-flex justify-center items-center text-center
+        transition duration-200 ease-in-out bg-slate-950/75 hover:bg-white hover:text-black rounded-full
         ring-1 ring-white hover:ring-white focus:ring-offset-white`
-    >
-      <Icon name="tabler:brand-github" class="w-5 h-5 " />
-      <span class="ml-2 hidden sm:block text-sm">
-        Star Us on GitHub
-      </span>
-    </Link>
-    <Link
-    noeffects={true}
-    external={true}
-    href={LINKS.github}
-    class=`w-28 p-2 px-3  inline-flex justify-center items-center text-center  transition duration-200 ease-in-out
-  
-    bg-slate-950/75 rounded-full
-      ring-1  ring-purple-500 hover:ring-purple-400 focus:ring-offset-purple-200`
-  >
-  <Icon
-  name="intacht"
-  class="w-6 h-6"
-/>
-    <span class="ml-2 text-sm">
-      Try Now
-    </span>
-  </Link>
+      >
+        <Icon name="tabler:brand-github" class="w-5 h-5" />
+        <span class="ml-2 hidden sm:block"> Star Us on GitHub </span>
+      </Link>
+      <Link
+        noeffects={true}
+        external={true}
+        href={LINKS.contact}
+        class="btn glass w-28 p-1 px-3 inline-flex justify-center items-center text-center font-semibold text-sm leading-6 rounded-full"
+      >
+        Contact Us
+      </Link>
     </div>
   </Header>
   <slot />
@@ -117,12 +108,12 @@ const metaData = {
             path: LINKS.roadmap,
           },
           {
-            title: "Changelog",
-            path: LINKS.changelog,
+            title: "Explore",
+            path: LINKS.explore,
           },
           {
-            title: "Use Cases",
-            path: LINKS.usecases,
+            title: "Changelog",
+            path: LINKS.changelog,
           },
         ],
       },

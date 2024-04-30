@@ -14,27 +14,28 @@ export const COLORS = {
 export const LINKS = {
   home: "/",
   roadmap: "/roadmap",
-  usecases: "/usecases",
+  explore: "/explore",
+  changelog: "/changelog",
+  contact: "mailto:team@intacht.com",
   github: "https://github.com/InTacht/xqua",
-  changelog:  "https://docs.xqua.dev/changelog",
   resources: {
-    blog: "/blog",
-    docs: "https://docs.xqua.dev",
-    learn:"https://learn.xqua.dev",
+    blog: "#", // "/blog",
+    docs: "https://github.com/InTacht/xqua", // "https://docs.xqua.dev",
+    learn: "https://github.com/InTacht/xqua", // "https://learn.xqua.dev",
   },
   intacht: {
     path: "https://www.intacht.com",
-    about:"https://about.intacht.com",
-    careers: "https://careers.intacht.com",
+    about: "https://peerlist.io/company/intacht", // "https://about.intacht.com",
+    careers: "https://peerlist.io/company/intacht/careers", // "https://careers.intacht.com",
     social: {
       github: "https://github.com/InTacht",
       twitter: "https://x.com/InTachtHQ",
       youtube: "https://www.youtube.com/@InTacht",
     },
     legal: {
-      path: "https://legal.intacht.com",
-      tos: "https://legal.intacht.com/terms-of-service",
-      privacyPolicy: "https://legal.intacht.com/privacy-policy",
+      path: "mailto:support@intacht.com", // "https://legal.intacht.com",
+      tos: "mailto:support@intacht.com", // "https://legal.intacht.com/terms-of-service",
+      privacyPolicy: "mailto:support@intacht.com", // "https://legal.intacht.com/privacy-policy",
     },
   },
 };

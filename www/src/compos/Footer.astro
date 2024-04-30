@@ -4,7 +4,6 @@ import { Icon } from "astro-icon/components";
 import Link from "@compos/core/Link.astro";
 import MadeByInTacht from "@compos/MadeByInTacht.astro";
 
-
 export interface Props {
   home: string;
   tos: string;
@@ -28,10 +27,6 @@ export interface Props {
   class="overflow-hidden w-full bg-gradient-to-t from-blue-600/15 to-slate-900"
 >
   <div class="max-w-6xl mx-auto px-10 py-8 md:px-12 relative">
-    <div
-      class="absolute w-[129%] h-[22%] left-[20%] top-[21%] blur-[100px] md:w-[37%] md:h-[110%] md:left-[-22%] md:top-[55%] md:blur-[175px] bg-purple-600/30"
-    >
-    </div>
     <div class="w-full grid grid-cols-12 md:grid-cols-10 gap-4 gap-y-8 sm:gap-8 py-4">
       <div
         class="col-span-12 md:col-span-4 flex flex-col justify-start items-center"
@@ -39,8 +34,8 @@ export interface Props {
         <div class="mb-2">
           <Link
             noeffects={true}
-            href={Astro.props.home}
-            class="inline-flex justify-between items-center font-extrabold"
+            external={true}
+            href={Astro.props.home} 
           >
             <MadeByInTacht/>
           </Link>
@@ -60,6 +55,7 @@ export interface Props {
                 <Link
                   noeffects={true}
                   external={true}
+                  aria-label={item.icon}
                   href={item.path}
                   class={`flex justify-center items-center text-gray-600 hover:text-white bg-white ${item.hover} rounded-full shadow transition duration-200 ease-in-out p-4 sm:p-2`}
                 >
@@ -72,12 +68,12 @@ export interface Props {
       </div>
       {
         Astro.props.navlinks.map((link) => (
-          <div class="col-span-12 sm:col-span-4 md:col-span-2 text-center md:text-justify">
-            <div class="font-medium mb-2">{link.title}</div>
+          <div class="col-span-12 sm:col-span-4 md:col-span-2 text-center md:text-justify z-10">
+            <div class="font-semibold mb-2 text-purple-500">{link.title}</div>
             <ul class="text-sm text-gray-200">
               {link.children.map((item) => (
                 <li class="mb-2">
-                  <Link href={item.path}>{item.title}</Link>
+                  <Link aria-label={item.title} href={item.path}>{item.title}</Link>
                 </li>
               ))}
             </ul>
@@ -89,5 +85,9 @@ export interface Props {
       Copyright © {new Date().getFullYear()} InTacht Industries Pvt. Ltd. All rights
       reserved.
     </p>
+    <div
+      class="absolute w-[129%] h-[22%] left-[20%] top-[21%] blur-[100px] md:w-[37%] md:h-[110%] md:left-[-22%] md:top-[55%] md:blur-[175px] bg-purple-600/30"
+    >
+    </div>
   </div>
 </footer>

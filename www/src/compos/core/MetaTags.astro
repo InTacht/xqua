@@ -1,10 +1,12 @@
 ---
+import type { GetImageResult } from "astro";
+
 import { relUrlByFilePath } from "@utils/path";
 
 export interface Props {
   title: string;
   description?: string;
-  image?: string | astroHTML.JSX.ImgHTMLAttributes;
+  image?: string | astroHTML.JSX.ImgHTMLAttributes | GetImageResult;
   canonical?: string;
 }
 

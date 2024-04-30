@@ -6,11 +6,25 @@ import { SITE, LINKS, COLORS } from "@config";
 import { Image } from "astro:assets";
 
 import Link from "@compos/core/Link.astro";
+import Logo from "@compos/Logo.astro";
+import BentoBox from "@compos/BentoBox.astro";
+// import TwoColsFeatures from "@compos/TwoColsFeatures.astro";
 
 import xquaText from "@assets/xqua-text.svg";
+import xquaBackground from "@assets/background.svg";
+import xquaSpaces from "@assets/xqua-spaces.svg";
+import xquaEcosystem from "@assets/xqua-ecosystem.svg";
+import xquaIconsAuth from "@assets/icons/auth.svg";
+import xquaIconsDash from "@assets/icons/dashboard.svg";
+import xquaIconsSecurity from "@assets/icons/security.svg";
+import xquaIconsStorage from "@assets/icons/storage.svg";
+import xquaIconsConnectedSpaces from "@assets/icons/connected-spaces.svg";
+import xquaIconsEmbeddedSpaces from "@assets/icons/embedded-spaces.svg";
 ---
 
-<Page title={`${SITE.name}: Building The Next-Gen of Internet Technologies`}>
+<Page
+  title={`${SITE.name}: An Open Framework to Build, Scale & Operate Platforms`}
+>
   <!-- hero section -->
   <main id="hero" class="relative px-6 lg:px-8 text-white">
     <!-- bg-gradients -->
@@ -41,6 +55,62 @@ import xquaText from "@assets/xqua-text.svg";
         </defs>
       </svg>
     </div>
+
+    <!-- content -->
+    <div class="m-auto max-w-2xl pt-12 sm:pt-24">
+      <div class="mb-8 flex justify-center">
+        <Link
+          noeffects={true}
+          href={LINKS.roadmap}
+          class="inline-flex justify-between items-center py-2 px-2 pr-4 text-sm bg-slate-950/75 rounded-full text-white ring-1 ring-transparent hover:ring-slate-300"
+        >
+          <span
+            class="animate-pulse text-[8px] sm:text-sm font-semibold bg-purple-600 rounded-full px-4 py-1.5 mr-3"
+          >
+            Brewing Now
+          </span>
+
+          <span class="text-[8px] sm:text-sm font-medium">
+            Checkout the Project Roadmap Here
+          </span>
+          <svg
+            class="ml-2 w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"></path></svg
+          >
+        </Link>
+      </div>
+      <div class="text-center">
+        <span class="flex flex-col justify-center items-center tracking-tight">
+          <Image
+            loading="eager"
+            src={xquaText}
+            alt="xqua-text"
+            class="w-8/12 lg:w-3/4"
+          />
+
+          <span class="mt-6 text-xl sm:text-4xl font-light">
+            The Framework for Platform Building
+          </span>
+        </span>
+        <p class="mt-6 text-sm md:text-lg leading-8 text-gray-300">
+          leverage the full potential of <span class="text-cyan-300"
+            >platform approach</span
+          > for your projects, teams, startup or whole organization by building reliable
+          platforms that can <span class="text-cyan-300">scale globally</span>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- components section -->
+  <section id="components" class="relative px-6 lg:px-8 text-white">
+    <!-- bg-gradients -->
     <div
       class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
     >
@@ -70,80 +140,125 @@ import xquaText from "@assets/xqua-text.svg";
     </div>
 
     <!-- content -->
-    <div class="mx-auto max-w-2xl py-24">
-      <div class="mb-8 flex justify-center">
-        <Link
-          noeffects={true}
-          href={LINKS.home}
-          class="inline-flex justify-between items-center py-2 px-2 pr-4 text-sm bg-slate-950/75 rounded-full text-white ring-1 ring-transparent hover:ring-slate-300"
-          role="alert"
+    <div class="m-auto max-w-6xl py-24">
+      <div class="relative grid gap-3 grid-cols-6">
+        <BentoBox
+          boxClass="col-span-full lg:col-span-2"
+          class="p-0"
+          style={`background-image: url(${xquaBackground.src}); background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;`}
         >
-          <span class="text-xs bg-purple-600 rounded-full px-4 py-1.5 mr-3"
-            >Brewing Now</span
-          >
-          <span class="text-sm font-medium">Checkout our latest project</span>
-          <svg
-            class="ml-2 w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd"></path></svg
-          >
-        </Link>
-      </div>
-      <div class="text-center">
-        <span class="flex flex-col justify-center items-center tracking-tight">
-          <!-- <h1 class="text-4xl font-bold sm:text-6xl">XQUA</h1>  -->
+          <div class="w-full h-full flex-cij">
+            <Logo hidetext={true} class="mr-0 h-3/5 w-3/5" />
 
-          <Image src={xquaText} alt="xqua-test" class="w-1/2 md:w-8/12 lg:w-3/4"/>
+            <h2 class="mt-6 text-center font-semibold text-white text-3xl">
+              Powerful Platform Engine & CLI
+            </h2>
+          </div>
+        </BentoBox>
 
-          <span class="mt-4 text-2xl font-light sm:text-5xl">
-            GitHub for Systems Design
-          </span>
-        </span>
-        <p class="mt-6 text-lg leading-8 text-gray-300">
-          changing the way how you design, test and collaborate to build
-          reliable systems and applications.
-        </p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
-          <Link
-            noeffects={true}
-            href={LINKS.home}
-            class="btn primary py-3 px-5 inline-flex justify-center items-center text-center"
-          >
-            Learn More
-            <svg
-              class="ml-2 -mr-1 w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path></svg
+        <BentoBox boxClass="col-span-full sm:col-span-3 lg:col-span-2">
+          <div class="w-full h-full flex-cij">
+            <div
+              class="h-3/4 w-full rounded-3xl bg-teal-700/30 hover:bg-teal-700/25 flex-rij"
             >
-          </Link>
-          <Link
-            noeffects={true}
-            href="#"
-            class="btn glass py-3 px-5 inline-flex justify-center items-center text-center"
-          >
-            <svg
-              class="mr-2 -ml-1 w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"
-              ></path></svg
+              <Image
+                loading="eager"
+                src={xquaIconsAuth}
+                alt="xqua-icons-auth"
+                class="w-10 h-10 m-2"
+              />
+              <Image
+                loading="eager"
+                src={xquaIconsDash}
+                alt="xqua-icons-dash"
+                class="w-10 h-10 m-2"
+              />
+              <Image
+                loading="eager"
+                src={xquaIconsSecurity}
+                alt="xqua-icons-security"
+                class="w-10 h-10 m-2"
+              />
+              <Image
+                loading="eager"
+                src={xquaIconsStorage}
+                alt="xqua-icons-storage"
+                class="w-10 h-10 m-2"
+              />
+            </div>
+
+            <div class="mt-6 text-center relative">
+              <h2
+                class="text-lg font-medium transition group-hover:text-purple-950 text-white"
+              >
+                Say Hello to Spaces
+              </h2>
+              <p class="text-gray-300">
+                Add features, technologies, and integrations on the fly with our
+                strategy-agnostic dev pattern anytime!
+              </p>
+            </div>
+          </div>
+        </BentoBox>
+
+        <BentoBox
+          boxClass="col-span-full sm:col-span-3 lg:col-span-2"
+          class="p-0 bg-black"
+        >
+          <Image
+            loading="eager"
+            src={xquaEcosystem}
+            alt="xqua-spaces"
+            class="w-full h-full rounded-2xl"
+          />
+        </BentoBox>
+
+        <BentoBox
+          boxClass="col-span-full lg:col-span-3"
+          class="p-0"
+          style={`background-image: url(${xquaBackground.src}); background-position: center;  -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;`}
+        >
+          <div class="w-full h-full flex-ci justify-between">
+            <h2
+              class="m-4 text-center font-normal text-white text-lg sm:text-xl"
             >
-            Watch video
-          </Link>
-        </div>
+              Infinite Freedom With <span class="font-semibold">Spaces</span>
+            </h2>
+
+            <div
+              class="h-4/5 w-full rounded-3xl bg-teal-700/30 hover:bg-teal-700/25 flex-ci justify-around sm:flex-row"
+            >
+              <Image
+                loading="eager"
+                src={xquaIconsConnectedSpaces}
+                alt="xqua-icons-connected-spaces"
+                class="w-48 mx-4 mt-4 mb-2 sm:mb-4"
+              />
+              <Image
+                loading="eager"
+                src={xquaIconsEmbeddedSpaces}
+                alt="xqua-icons-embedded-spaces"
+                class="w-24 mx-4 mb-4 mt-2 sm:mt-4"
+              />
+            </div>
+          </div>
+        </BentoBox>
+
+        <BentoBox
+          boxClass="col-span-full lg:col-span-3"
+          class="p-0"
+          style={`background-image: url(${xquaBackground.src}); background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;`}
+        >
+          <Image
+            loading="eager"
+            src={xquaSpaces}
+            alt="xqua-spaces"
+            class="w-full h-full rounded-2xl"
+          />
+        </BentoBox>
       </div>
     </div>
-  </main>
+  </section>
+
+  <!-- <TwoColsFeatures /> -->
 </Page>

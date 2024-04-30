@@ -1,0 +1,120 @@
+---
+import Page from "@layouts/Page.astro";
+
+import { SITE, LINKS, COLORS } from "@config";
+
+import { Image } from "astro:assets";
+
+import Link from "@compos/core/Link.astro";
+
+import illEngineeringTeam from "@assets/illustrations/engineering_team.svg";
+---
+
+<Page title={`${SITE.name}: Explore`}>
+  <section
+    id="explore"
+    class="relative px-6 lg:px-8 flex-cij"
+  >
+    <!-- bg-gradients -->
+    <div
+      class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+    >
+      <svg
+        class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+        viewBox="0 0 1155 678"
+      >
+        <path
+          fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
+          fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+        ></path>
+        <defs>
+          <linearGradient
+            id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
+            x1="1155.49"
+            x2="-78.208"
+            y1=".177"
+            y2="474.645"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color={COLORS.c}></stop>
+            <stop offset="1" stop-color={COLORS.b}></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div
+      class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+    >
+      <svg
+        class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
+        viewBox="0 0 1155 678"
+      >
+        <path
+          fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)"
+          fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+        ></path>
+        <defs>
+          <linearGradient
+            id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc"
+            x1="1155.49"
+            x2="-78.208"
+            y1=".177"
+            y2="474.645"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color={COLORS.b}></stop>
+            <stop offset="1" stop-color={COLORS.a}></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- content -->
+    <div class="m-auto max-w-2xl py-12 sm:py-24">
+      <div class="mb-8 flex justify-center">
+        <Link
+          noeffects={true}
+          href={LINKS.roadmap}
+          class="inline-flex justify-between items-center py-2 px-2 pr-4 text-sm bg-slate-950/75 rounded-full text-white ring-1 ring-transparent hover:ring-slate-300"
+        >
+          <span
+            class="animate-pulse text-[8px] sm:text-sm font-semibold bg-purple-600 rounded-full px-4 py-1.5 mr-3"
+          >
+            Brewing Now
+          </span>
+
+          <span class="text-[8px] sm:text-sm font-medium">
+            Checkout the Project Roadmap Here
+          </span>
+          <svg
+            class="ml-2 w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"></path></svg
+          >
+        </Link>
+      </div>
+      <div class="text-center">
+        <span class="flex flex-col justify-center items-center tracking-tight">
+          <Image
+            loading="eager"
+            src={illEngineeringTeam}
+            alt="illustration-engineering-team"
+            class="w-8/12 lg:w-3/4"
+          />
+
+          <span class="mt-6 text-lg sm:text-2xl font-mono">
+            Awesome Content in the Pipeline to Explore XQUA
+          </span>
+        </span>
+      </div>
+    </div>
+  </section>
+</Page>
