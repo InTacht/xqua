@@ -1,6 +1,6 @@
 # XQUA: Website (xqua.dev)
 
-Official Website for The XQUA Project.
+Official Website for The XQUA Project
 
 ## 🧞 Commands
 
